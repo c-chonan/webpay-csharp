@@ -9,7 +9,7 @@ namespace WebPayCheckout.Request
     /// <summary>
     /// 新たに作成する課金情報
     /// </summary>
-    public class ChargeRequest : IRequest
+    public class ChargeRequest
     {
 
         /// <summary>
@@ -71,7 +71,13 @@ namespace WebPayCheckout.Request
             this.Uuid = Guid.Empty;
         }
 
-        public Dictionary<string, string> ToFormContent(Dictionary<string, string> dictionary)
+        /// <summary>
+        /// このインスタンスに持っている情報をWebのフォームなどで送信するための
+        /// Dictionaryに詰め込みます。
+        /// </summary>
+        /// <param name="dictionary">情報を詰め込むDictionary</param>
+        /// <returns>情報の詰まったDictionary</returns>
+        internal Dictionary<string, string> ToFormContent(Dictionary<string, string> dictionary)
         {
 
             if (Amount <= 0)

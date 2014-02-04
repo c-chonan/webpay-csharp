@@ -9,7 +9,7 @@ namespace WebPayCheckout.Request
     /// <summary>
     /// リストを取得する際の条件を指定するクラス
     /// </summary>
-    public class ListRequest : IRequest
+    public class ListRequest
     {
         /// <summary>
         /// 一度にリストで返す顧客オブジェクトの上限数。
@@ -58,7 +58,13 @@ namespace WebPayCheckout.Request
             this.CreatedLte = DateTimeOffset.MinValue;
         }
 
-        public Dictionary<string, string> ToFormContent(Dictionary<string, string> dictionary)
+        /// <summary>
+        /// このインスタンスに持っている情報をWebのフォームなどで送信するための
+        /// Dictionaryに詰め込みます。
+        /// </summary>
+        /// <param name="dictionary">情報を詰め込むDictionary</param>
+        /// <returns>情報の詰まったDictionary</returns>
+        internal Dictionary<string, string> ToFormContent(Dictionary<string, string> dictionary)
         {
             dictionary.Add("count", this.Count.ToString());
 

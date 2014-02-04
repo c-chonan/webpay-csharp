@@ -52,7 +52,6 @@
     <Compile Include="Request\CardRequest.cs" />
     <Compile Include="Request\ChargeRequest.cs" />
     <Compile Include="Request\CustomerRequest.cs" />
-    <Compile Include="Request\IRequest.cs" />
     <Compile Include="Request\ListRequest.cs" />
     <Compile Include="Request\RequiredParamNotSetException.cs" />
     <Compile Include="Response\Account.cs" />

@@ -10,7 +10,7 @@ namespace WebPayCheckout.Request
     /// <summary>
     /// 新たに作成するカード情報
     /// </summary>
-    public class CardRequest : IRequest
+    public class CardRequest
     {
 
         /// <summary>
@@ -38,7 +38,13 @@ namespace WebPayCheckout.Request
         /// </summary>
         public int CVC { get; set; }
 
-        public Dictionary<string, string> ToFormContent(Dictionary<string, string> dictionary)
+        /// <summary>
+        /// このインスタンスに持っている情報をWebのフォームなどで送信するための
+        /// Dictionaryに詰め込みます。
+        /// </summary>
+        /// <param name="dictionary">情報を詰め込むDictionary</param>
+        /// <returns>情報の詰まったDictionary</returns>
+        internal Dictionary<string, string> ToFormContent(Dictionary<string, string> dictionary)
         {
             dictionary.Add("card[number]", this.Number);
             dictionary.Add("card[name]", this.Name);
